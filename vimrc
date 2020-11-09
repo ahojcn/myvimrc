@@ -1,13 +1,15 @@
 " 主题颜色
 colorscheme apprentice
 
-" 设置 tab = 4
+" 设置 tab = 4, 将tab换成4个空格
+set expandtab
 set softtabstop =4
+set tabstop     =4
 
 " 显示行号
 set nu
-" 当前行列不高亮
-set nocursorline
+" 当前行列高亮
+set cursorline
 set nocursorcolumn
 " 相对行号
 " set relativenumber
@@ -38,8 +40,9 @@ call plug#begin('~/.vim/bundle')
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""" nerdtree 文件树
-map <C-n> :NERDTreeToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
+" map <C-n> :NERDTreeToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=0
+let g:NERDTreeWinSize=20
 
 
 """""""""""""""""""""""""""""""""""""""""" vim-easy-align 对齐插件配置
@@ -102,3 +105,16 @@ let g:ycm_semantic_triggers                             = {
 	\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
 	\ 'cs,lua,javascript': ['re!\w{2}'],
 	\}
+
+
+""""""""""""""""""""""""""""""""""""""""" 菜单
+nnoremap <silent><nowait> <space> :call MenuFunc()<cr>
+function MenuFunc()
+	nnoremap <silent><nowait> a :call GuideEsc()<cr>:NERDTreeToggle<cr>
+	echo "[a] 文件菜单"
+endfunction
+
+function GuideEsc()
+	unmap a
+	echo ""
+endfunction
