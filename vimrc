@@ -1,6 +1,9 @@
 " 主题颜色
 colorscheme apprentice
 
+" 字体和大小
+" set guifont=Monnospace\ 30
+
 " 设置 tab = 4, 将tab换成4个空格
 set expandtab
 set softtabstop =4
