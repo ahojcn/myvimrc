@@ -8,6 +8,7 @@ colorscheme apprentice
 set expandtab
 set softtabstop =4
 set tabstop     =4
+set shiftwidth  =4
 
 " 显示行号
 set nu
@@ -15,7 +16,7 @@ set nu
 set cursorline
 set nocursorcolumn
 " 相对行号
-" set relativenumber
+set relativenumber
 
 " 快速添加空行
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
@@ -26,21 +27,24 @@ xnoremap < <gv
 xnoremap > >gv
 
 """ plugins
+let g:plug_url_format='git@github.com:%s.git'
+" git@github.com:neoclide/coc.nvim.git
 call plug#begin('~/.vim/bundle')
-	" 对齐插件
 	Plug 'junegunn/vim-easy-align'
-	" 语法提示插件
 	Plug 'Valloric/YouCompleteMe'
-	" 语法错误检测
 	Plug 'dense-analysis/ale'
-	" 补全插件增强
 	Plug 'Shougo/neocomplete.vim'
-	" 文件树
 	Plug 'preservim/nerdtree'
 	Plug 'jistr/vim-nerdtree-tabs'
-	" 状态栏
 	Plug 'vim-airline/vim-airline'
+    Plug 'tpope/vim-surround'
+    Plug 'gcmt/wildfire.vim'
+    Plug 'neoclide/coc.nvim'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'puremourning/vimspector'
 call plug#end()
+
 
 """""""""""""""""""""""""""""""""""""""""" nerdtree 文件树
 " map <C-n> :NERDTreeToggle<CR>
@@ -110,14 +114,26 @@ let g:ycm_semantic_triggers                             = {
 	\}
 
 
-""""""""""""""""""""""""""""""""""""""""" 菜单
-nnoremap <silent><nowait> <space> :call MenuFunc()<cr>
-function MenuFunc()
-	nnoremap <silent><nowait> a :call GuideEsc()<cr>:NERDTreeToggle<cr>
-	echo "[a] 文件菜单"
-endfunction
+" 打开文件列表
+map f :NERDTreeToggle<CR>
+nmap tt :CocCommand explorer<CR>
 
-function GuideEsc()
-	unmap a
-	echo ""
-endfunction
+""""""""""""""""""""""""""""""""""""""""" 菜单
+" nnoremap <silent><nowait> <space> :call MenuFunc()<cr>
+" function MenuFunc()
+" 	nnoremap <silent><nowait> a :call GuideEsc()<cr>:NERDTreeToggle<cr>
+" 	echo "[a] 文件菜单"
+" endfunction
+" 
+" function GuideEsc()
+" 	unmap a
+" 	echo ""
+" endfunction
+
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
