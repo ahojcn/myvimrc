@@ -43,6 +43,8 @@ call plug#begin('~/.vim/bundle')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'puremourning/vimspector'
+    Plug 'mg979/vim-xtabline'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""" nerdtree 文件树
@@ -114,7 +116,7 @@ let g:ycm_semantic_triggers                             = {
 
 
 " 打开文件列表
-map f :NERDTreeToggle<CR>
+map <c-f> :NERDTreeToggle<CR>
 nmap tt :CocCommand explorer<CR>
 
 """"""""""""""""""""""""""""""""""""""""" 菜单
@@ -146,4 +148,33 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " 	echo ""
 " endfunction
 
+" 调试配置
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <c-d> :VimspectorReset<CR>
 
+" ===
+" === vim-visual-multi
+" ===
+"let g:VM_theme             = 'iceblue'
+"let g:VM_default_mappings = 0
+let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps                       = {}
+let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
+let g:VM_maps['i']                  = 'k'
+let g:VM_maps['I']                  = 'K'
+let g:VM_maps['Find Under']         = '<C-k>'
+let g:VM_maps['Find Subword Under'] = '<C-k>'
+let g:VM_maps['Find Next']          = ''
+let g:VM_maps['Find Prev']          = ''
+let g:VM_maps['Remove Region']      = 'q'
+let g:VM_maps['Skip Region']        = '<c-n>'
+let g:VM_maps["Undo"]               = 'l'
+let g:VM_maps["Redo"]               = '<C-r>'
+
+" 标签快捷键
+nmap tN :tabnew<CR>
+nmap tn :tabn <CR>
+nmap tp :tabp<CR>
+nmap tf :tabfirst<CR>
+nmap tl :tablast<CR>
+nmap tc :tabc<CR>
