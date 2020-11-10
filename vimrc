@@ -38,6 +38,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jistr/vim-nerdtree-tabs'
 	Plug 'vim-airline/vim-airline'
     Plug 'tpope/vim-surround'
+<<<<<<< HEAD
     Plug 'gcmt/wildfire.vim'
     Plug 'neoclide/coc.nvim'
     Plug 'SirVer/ultisnips'
@@ -46,6 +47,16 @@ call plug#begin('~/.vim/bundle')
 call plug#end()
 
 
+=======
+    " Plug 'gcmt/wildfire.vim'
+    " Plug 'terryma/vim-expand-region'
+    "     map K <Plug>(expand_region_expand)
+    "     map J <Plug>(expand_region_shrink)
+call plug#end()
+
+
+
+>>>>>>> 5de81ed1536a87a0e6f59b152a7c4ac7d1176369
 """""""""""""""""""""""""""""""""""""""""" nerdtree 文件树
 " map <C-n> :NERDTreeToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=0
@@ -119,6 +130,7 @@ map f :NERDTreeToggle<CR>
 nmap tt :CocCommand explorer<CR>
 
 """"""""""""""""""""""""""""""""""""""""" 菜单
+<<<<<<< HEAD
 " nnoremap <silent><nowait> <space> :call MenuFunc()<cr>
 " function MenuFunc()
 " 	nnoremap <silent><nowait> a :call GuideEsc()<cr>:NERDTreeToggle<cr>
@@ -136,4 +148,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+=======
+nnoremap <silent><nowait> <space> :call MenuFunc()<cr>
+function MenuFunc()
+	nnoremap <silent><nowait> a :call GuideEsc()<cr>:NERDTreeToggle<cr>
+	echo "[a] 文件菜单"
+endfunction
+
+function GuideEsc()
+	unmap a
+	echo ""
+endfunction
+>>>>>>> 5de81ed1536a87a0e6f59b152a7c4ac7d1176369
 
