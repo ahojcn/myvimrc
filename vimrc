@@ -1,6 +1,8 @@
 " 主题颜色
 colorscheme apprentice
 
+noremap tx :r !figlet 
+
 " 字体和大小
 " set guifont=Monnospace\ 30
 
